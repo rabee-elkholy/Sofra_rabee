@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/home_navigation"
+    app:startDestination="@id/restaurantsFragment">
+
+
+    <fragment
+        android:id="@+id/restaurantsFragment"
+        android:name="com.androdu.sofra.ui.fragments.home.allRestaurants.AllRestaurantsFragment"
+        android:label="fragment_restaurants"
+        tools:layout="@layout/fragment_all_restaurants" >
+        <action
+            android:id="@+id/action_restaurantsFragment_to_restaurantTabsFragment"
+            app:destination="@id/restaurantTabsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/restaurantTabsFragment"
+        android:name="com.androdu.sofra.ui.fragments.home.resturantTabs.RestaurantTabsFragment"
+        android:label="RestaurantTabsFragment" >
+        <argument android:name="restaurantId"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_restaurantTabsFragment_to_restaurantItemDetailsFragment"
+            app:destination="@id/restaurantItemDetailsFragment" />
+        <argument
+            android:name="restaurantName"
+            app:argType="string" />
+        <argument
+            android:name="photoUrl"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/restaurantItemDetailsFragment"
+        android:name="com.androdu.sofra.ui.fragments.home.resturantTabs.restaurant.restaurantItemDetails.RestaurantItemDetailsFragment"
+        android:label="fragment_restaurant_item_details"
+        tools:layout="@layout/fragment_restaurant_item_details" >
+        <argument
+            android:name="photo_url"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="restaurant_id"
+            app:argType="integer" />
+        <argument
+            android:name="item_id"
+            app:argType="integer" />
+        <argument
+            android:name="price"
+            app:argType="float" />
+        <argument
+            android:name="offer_price"
+            app:argType="float" />
+        <argument
+            android:name="has_offer"
+            app:argType="boolean" />
+        <argument
+            android:name="name"
+            app:argType="string" />
+        <argument android:name="description" />
+    </fragment>
+    <fragment
+        android:id="@+id/myCartFragment"
+        android:name="com.androdu.sofra.ui.fragments.home.myCart.MyCartFragment"
+        android:label="MyCartFragment" />
+</navigation>

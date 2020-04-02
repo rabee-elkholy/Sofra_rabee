@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Sofra</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="invalid_email">Email must be like this \"example@example.com\"</string>
+    <string name="invalid_phone1">Phone number must be \ </string>
+    <string name="invalid_phone2"> number</string>
+    <string name="invalid_confirm_password">Confirm password not match</string>
+    <string name="empty">Fields are required</string>
+    <string name="phone3">phone number must be 11 number</string>
+    <string name="weak_password">password is weak</string>
+    <string name="create_account"><u>ليس لديك حساب؟ إضغط هنا</u></string>
+    <string name="title_activity_home">HomeActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+</resources>

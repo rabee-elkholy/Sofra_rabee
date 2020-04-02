@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/gray"
+        android:orientation="vertical"
+        tools:context=".ui.fragments.home.resturantTabs.restaurant.restaurantItemDetails.RestaurantItemDetailsFragment">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_16sdp"
+            android:layout_marginVertical="@dimen/_20sdp"
+            android:elevation="4dp"
+            app:cardCornerRadius="15dp">
+
+            <ImageView
+                android:id="@+id/restaurant_item_details_fragment_iv_item_img"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_200sdp"
+                android:scaleType="center" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_100sdp"
+                android:layout_gravity="bottom"
+                android:elevation="20dp"
+                app:cardCornerRadius="15dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:orientation="vertical"
+                    android:paddingHorizontal="@dimen/_8sdp">
+
+                    <TextView
+                        android:id="@+id/restaurant_item_details_fragment_tv_item_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/_8sdp"
+                        android:textAlignment="viewEnd"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="@dimen/_16ssp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/restaurant_item_details_fragment_tv_item_description"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/_8sdp"
+                        android:textAlignment="viewEnd"
+                        android:textSize="@dimen/_12ssp" />
+
+                    <TextView
+                        android:id="@+id/restaurant_item_details_fragment_tv_item_price"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/_8sdp"
+                        android:textAlignment="viewEnd"
+                        android:textColor="@color/design_default_color_primary_variant"
+                        android:textSize="@dimen/_15ssp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+        </androidx.cardview.widget.CardView>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+            android:background="@color/gray2" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_16sdp"
+            android:layout_marginVertical="@dimen/_8sdp"
+            android:text="طلب خاص"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_13ssp"
+            android:textStyle="bold" />
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_16sdp"
+            android:elevation="@dimen/_10sdp"
+            app:cardCornerRadius="@dimen/_15sdp">
+
+            <EditText
+                android:id="@+id/restaurant_item_details_fragment_et_private_order"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/border_shape"
+                android:hint="أدخل طلبك هنا"
+                android:inputType="textMultiLine"
+                android:lines="5"
+                android:padding="@dimen/_4sdp"
+                android:textSize="@dimen/_12ssp" />
+        </androidx.cardview.widget.CardView>
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+            android:layout_marginVertical="@dimen/_20sdp"
+            android:background="@color/gray2" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageButton
+                android:id="@+id/restaurant_item_details_fragment_ibtn_remove_item"
+                android:layout_width="@dimen/_35sdp"
+                android:layout_height="@dimen/_35sdp"
+                android:layout_toStartOf="@+id/card"
+                android:elevation="@dimen/_4sdp"
+                android:layout_marginVertical="@dimen/_4sdp"
+                android:background="@drawable/shape_btn2"
+                android:src="@drawable/ic_remove_black" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginHorizontal="@dimen/_16sdp"
+                android:layout_marginVertical="@dimen/_4sdp"
+                android:elevation="@dimen/_10sdp"
+                app:cardCornerRadius="@dimen/_10sdp">
+
+                <TextView
+                    android:id="@+id/restaurant_item_details_fragment_tv_items_counter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/border_shape"
+                    android:paddingHorizontal="@dimen/_30sdp"
+                    android:paddingVertical="@dimen/_8sdp"
+                    android:text="1"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_13ssp" />
+            </androidx.cardview.widget.CardView>
+
+            <ImageButton
+                android:id="@+id/restaurant_item_details_fragment_ibtn_add_item"
+                android:layout_width="@dimen/_35sdp"
+                android:layout_height="@dimen/_35sdp"
+                android:layout_toEndOf="@+id/card"
+                android:elevation="@dimen/_4sdp"
+                android:layout_marginVertical="@dimen/_4sdp"
+                android:background="@drawable/shape_btn2"
+                android:src="@drawable/ic_add_black"/>
+        </RelativeLayout>
+
+        <ImageButton
+            android:id="@+id/restaurant_item_details_fragment_ibtn_my_cart"
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_gravity="center"
+            android:elevation="@dimen/_4sdp"
+            android:layout_marginVertical="@dimen/_20sdp"
+            android:layout_toEndOf="@+id/card"
+            android:background="@drawable/shape_btn3"
+            android:src="@drawable/ic_shopping_cart" />
+
+    </LinearLayout>
+</ScrollView>

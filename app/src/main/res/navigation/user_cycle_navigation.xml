@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/user_cycle_navigation"
+    app:startDestination="@id/loginFragment"
+    tools:ignore="UnusedNavigation">
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.androdu.sofra.ui.fragments.userCycle.login.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login">
+        <action
+            android:id="@+id/action_loginFragment_to_registerFragment"
+            app:destination="@id/registerFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_loginFragment_to_clientRegisterFragment"
+            app:destination="@id/clientRegisterFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.androdu.sofra.ui.fragments.userCycle.restaurantRegister.firstRegister.FirstRegisterFragment"
+        android:label="fragment_register"
+        tools:layout="@layout/fragment_first_register">
+        <action
+            android:id="@+id/action_registerFragment_to_secondRegisterFragment"
+            app:destination="@id/secondRegisterFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/secondRegisterFragment"
+        android:name="com.androdu.sofra.ui.fragments.userCycle.restaurantRegister.secondRegister.SecondRegisterFragment"
+        android:label="fragment_second_register"
+        tools:layout="@layout/fragment_second_register">
+        <argument
+            android:name="restaurant_name"
+            app:argType="string" />
+        <argument
+            android:name="restaurant_email"
+            app:argType="string" />
+        <argument
+            android:name="delivery_time"
+            app:argType="integer" />
+        <argument
+            android:name="restaurant_city_id"
+            app:argType="string" />
+        <argument
+            android:name="restaurant_region_id"
+            app:argType="string" />
+        <argument
+            android:name="password"
+            app:argType="string" />
+        <argument
+            android:name="minimum_charger"
+            app:argType="string" />
+        <argument
+            android:name="delivery_cost"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/clientRegisterFragment"
+        android:name="com.androdu.sofra.ui.fragments.userCycle.clientRegister.ClientRegisterFragment"
+        android:label="ClientRegisterFragment" />
+</navigation>

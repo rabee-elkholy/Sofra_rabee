@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.fragments.home.resturantTabs.restaurantReviews.addReviewFragment.AddReviewDialogFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/gray"
+        android:orientation="vertical">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/add_review_fragment_civ_restaurant_photo"
+            android:layout_width="@dimen/_60sdp"
+            android:layout_height="@dimen/_60sdp"
+            android:layout_gravity="center"
+            android:layout_marginVertical="@dimen/_30sdp"
+            android:background="@drawable/shape_btn2" />
+
+        <TextView
+            android:id="@+id/add_review_fragment_tv_restaurant_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="@dimen/_8sdp"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/_14ssp"
+            android:textStyle="bold" />
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="@dimen/_15sdp"
+            android:background="@drawable/border_shape"
+            android:orientation="vertical"
+            android:padding="@dimen/_15sdp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="@dimen/_8sdp"
+                android:text="إختر تقييمك"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_13ssp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="@dimen/_5sdp"
+                android:orientation="horizontal">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/add_review_fragment_civ_rate_1"
+                    android:layout_width="@dimen/_30sdp"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_gravity="center"
+                    android:layout_marginHorizontal="@dimen/_4sdp"
+                    android:background="@drawable/shape_btn2"
+                    android:src="@drawable/ic_emoji_rate_1"
+                    android:tag="1" />
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/add_review_fragment_civ_rate_2"
+                    android:layout_width="@dimen/_30sdp"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_gravity="center"
+                    android:layout_marginHorizontal="@dimen/_4sdp"
+                    android:background="@drawable/shape_btn2"
+                    android:src="@drawable/ic_emoji_rate_2"
+                    android:tag="2" />
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/add_review_fragment_civ_rate_3"
+                    android:layout_width="@dimen/_30sdp"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_gravity="center"
+                    android:layout_marginHorizontal="@dimen/_4sdp"
+                    android:background="@drawable/shape_btn2"
+                    android:src="@drawable/ic_emoji_rate_3"
+                    android:tag="3" />
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/add_review_fragment_civ_rate_4"
+                    android:layout_width="@dimen/_30sdp"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_gravity="center"
+                    android:layout_marginHorizontal="@dimen/_4sdp"
+                    android:background="@drawable/shape_btn2"
+                    android:src="@drawable/ic_emoji_rate_4"
+                    android:tag="4" />
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/add_review_fragment_civ_rate_5"
+                    android:layout_width="@dimen/_30sdp"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_gravity="center"
+                    android:layout_marginHorizontal="@dimen/_4sdp"
+                    android:background="@drawable/shape_btn4"
+                    android:src="@drawable/ic_emoji_rate_5"
+                    android:tag="5" />
+
+            </LinearLayout>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_15sdp"
+                android:layout_marginVertical="@dimen/_15sdp"
+                android:elevation="@dimen/_10sdp"
+                app:cardCornerRadius="@dimen/_15sdp">
+
+                <EditText
+                    android:id="@+id/add_review_fragment_et_review_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/border_shape"
+                    android:hint="أدخل طلبك هنا"
+                    android:inputType="textMultiLine"
+                    android:lines="5"
+                    android:padding="@dimen/_4sdp"
+                    android:textSize="@dimen/_12ssp" />
+            </androidx.cardview.widget.CardView>
+
+            <Button
+                android:id="@+id/add_review_fragment_btn_add_review"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="@dimen/_13sdp"
+                android:background="@drawable/shape_btn1"
+                android:text="أضف"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_13ssp" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+    <include layout="@layout/progress_bar"
+        android:id="@+id/add_review_fragment_pb_progress_bar"/>
+
+
+</androidx.cardview.widget.CardView>
