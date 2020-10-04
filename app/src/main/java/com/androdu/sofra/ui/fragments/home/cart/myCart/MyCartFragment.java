@@ -1,4 +1,4 @@
-package com.androdu.sofra.ui.fragments.home.myCart;
+package com.androdu.sofra.ui.fragments.home.cart.myCart;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -8,12 +8,13 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.androdu.sofra.R;
 import com.androdu.sofra.adapter.CartItemsAdapter;
-import com.androdu.sofra.data.local.room.Item;
+import com.androdu.sofra.data.local.room.cartItem;
 
 import java.util.List;
 
@@ -63,21 +64,28 @@ public class MyCartFragment extends Fragment implements IMyCartFragment.View {
                 getActivity().onBackPressed();
             }
         });
+        fragmentCartBtConfirm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Navigation.findNavController(getActivity(), R.id.nav_host_fragment)
+                .navigate(R.id.action_myCartFragment_to_confirmOrderFragment);
+            }
+        });
     }
 
     @Override
-    public void onGetItemsSuccess(List<Item> items) {
+    public void onGetItemsSuccess(List<cartItem> cartItems) {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
         fragmentCartRv.setLayoutManager(linearLayoutManager);
-        CartItemsAdapter cartAdapter = new CartItemsAdapter(getActivity(), items, new updateUi() {
+        CartItemsAdapter cartAdapter = new CartItemsAdapter(getActivity(), cartItems, new updateUi() {
             @Override
-            public void onItemDeleted(List<Item> items) {
+            public void onItemDeleted(List<cartItem> items) {
                 updateUi(items);
             }
         });
         fragmentCartRv.setAdapter(cartAdapter);
 
-        updateUi(items);
+        updateUi(cartItems);
     }
 
     @Override
@@ -86,13 +94,13 @@ public class MyCartFragment extends Fragment implements IMyCartFragment.View {
     }
 
     public interface updateUi {
-        void onItemDeleted(List<Item> items);
+        void onItemDeleted(List<cartItem> cartItems);
     }
 
-    private void updateUi(List<Item> items){
+    private void updateUi(List<cartItem> cartItems){
         total = 0.0;
-        for (int i = 0; i < items.size(); i++) {
-            total = total + items.get(i).getQuantity() * items.get(i).getCost();
+        for (int i = 0; i < cartItems.size(); i++) {
+            total = total + cartItems.get(i).getQuantity() * cartItems.get(i).getCost();
         }
         fragmentCartTvTCost.setText((int)total + " ج");
     }

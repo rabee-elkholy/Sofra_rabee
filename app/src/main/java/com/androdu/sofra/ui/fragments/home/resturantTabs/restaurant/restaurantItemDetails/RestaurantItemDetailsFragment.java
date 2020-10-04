@@ -13,9 +13,10 @@ import android.widget.TextView;
 import androidx.fragment.app.Fragment;
 
 import com.androdu.sofra.R;
-import com.androdu.sofra.data.local.room.Item;
+import com.androdu.sofra.data.local.room.CartRestaurant;
 import com.androdu.sofra.data.local.room.RoomDao;
 import com.androdu.sofra.data.local.room.RoomManger;
+import com.androdu.sofra.data.local.room.cartItem;
 import com.androdu.sofra.utils.ToastCreator;
 import com.bumptech.glide.Glide;
 
@@ -28,7 +29,7 @@ public class RestaurantItemDetailsFragment extends Fragment {
     private String name;
     private String description;
     private String photo_url;
-    private String restaurant_id;
+    private int restaurant_id;
     private int item_id;
     private float price;
     private float offer_price;
@@ -53,7 +54,7 @@ public class RestaurantItemDetailsFragment extends Fragment {
         name = getArguments().getString("name");
         description = getArguments().getString("description");
         photo_url = getArguments().getString("photo_url");
-        restaurant_id = getArguments().getString("restaurant_id");
+        restaurant_id = getArguments().getInt("restaurant_id");
         item_id = getArguments().getInt("item_id");
         price = getArguments().getFloat("price");
         offer_price = getArguments().getFloat("offer_price");
@@ -103,7 +104,6 @@ public class RestaurantItemDetailsFragment extends Fragment {
                 itemsCounterTv.setText(itemCounter + "");
                 if (itemCounter > 1)
                     removeItemBtn.setEnabled(true);
-
             }
         });
 
@@ -124,16 +124,20 @@ public class RestaurantItemDetailsFragment extends Fragment {
                 Executors.newSingleThreadExecutor().execute(new Runnable() {
                     @Override
                     public void run() {
-                        Item item = new Item(getArguments().getInt("item_id"),
-                                getArguments().getInt("restaurant_id"),
-                                getArguments().getString("name"),
+                        if (roomDao.getRestaurant().isEmpty()){
+                            CartRestaurant cartRestaurant = new CartRestaurant(restaurant_id);
+                            roomDao.addCartRestaurant(cartRestaurant);
+                            Log.d("room", "run: rest added: " + roomDao.getRestaurant().get(0).getId());
+                        }
+                        cartItem cartItem = new cartItem(item_id,
+                                name,
                                 itemCounter,
-                                getArguments().getString("photo_url"),
+                                photo_url,
                                 privateOrderEt.getText().toString(),
-                                getArguments().getFloat("price"));
-
-                        roomDao.add(item);
-                        Log.d("room", "run: item added");
+                                price
+                        );
+                        roomDao.addCartItem(cartItem);
+                        Log.d("room", "run: item added: " + cartItem.getId());
                     }
                 });
                 ToastCreator.onCreateSuccessToast(getActivity(), "تم الاضافة الي العربة", R.drawable.checked);

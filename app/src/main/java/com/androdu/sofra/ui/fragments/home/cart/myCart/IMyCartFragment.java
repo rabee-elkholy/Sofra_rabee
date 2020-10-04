@@ -1,8 +1,8 @@
-package com.androdu.sofra.ui.fragments.home.myCart;
+package com.androdu.sofra.ui.fragments.home.cart.myCart;
 
 import android.app.Activity;
 
-import com.androdu.sofra.data.local.room.Item;
+import com.androdu.sofra.data.local.room.cartItem;
 
 import java.util.List;
 
@@ -12,7 +12,7 @@ public interface IMyCartFragment {
 
         void initListeners();
 
-        void onGetItemsSuccess(List<Item> items);
+        void onGetItemsSuccess(List<cartItem> cartItems);
 
         void onError(String msg);
 

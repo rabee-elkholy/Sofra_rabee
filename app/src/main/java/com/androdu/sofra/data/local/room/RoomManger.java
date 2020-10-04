@@ -8,7 +8,7 @@ import androidx.room.RoomDatabase;
 import androidx.room.TypeConverters;
 
 
-@Database(entities = {Item.class}, version = 1, exportSchema = false)
+@Database(entities = {cartItem.class, CartRestaurant.class}, version = 1, exportSchema = false)
 @TypeConverters(DataTypeConverter.class)
 public abstract class RoomManger extends RoomDatabase {
     public abstract RoomDao roomDao();
@@ -18,7 +18,7 @@ public abstract class RoomManger extends RoomDatabase {
     public static synchronized RoomManger getInstance(Context context) {
         if (roomManger == null) {
             roomManger = Room.databaseBuilder(context.getApplicationContext(), RoomManger.class,
-                    "sofra_database")
+                    "sofra_database2")
                     .fallbackToDestructiveMigration()
                     .build();
         }

@@ -9,13 +9,13 @@ import com.androdu.sofra.ui.fragments.home.resturantTabs.restaurant.RestaurantFr
 import com.androdu.sofra.ui.fragments.home.resturantTabs.restaurantDetails.RestaurantDetailsFragment;
 import com.androdu.sofra.ui.fragments.home.resturantTabs.restaurantReviews.RestaurantReviewsFragment;
 
-public class ViewPagerAdapter extends FragmentPagerAdapter {
+public class RestaurantViewPagerAdapter extends FragmentPagerAdapter {
 
     private int restaurantId;
 
     private String restaurantName, photoUrl;
 
-    public ViewPagerAdapter(FragmentManager fragmentManager, int restaurantId, String restaurantName, String photoUrl) {
+    public RestaurantViewPagerAdapter(FragmentManager fragmentManager, int restaurantId, String restaurantName, String photoUrl) {
         super(fragmentManager);
         this.restaurantId = restaurantId;
         this.photoUrl = photoUrl;

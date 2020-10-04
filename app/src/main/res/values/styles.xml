@@ -38,6 +38,6 @@
         <!-- Hint color and label color in FALSE state -->
         <item name="android:textSize">@dimen/_15ssp</item>
         <item name="android:textStyle">bold</item>
-       </style>
+    </style>
 
 </resources>

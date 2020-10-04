@@ -1,6 +1,7 @@
 package com.androdu.sofra.adapter;
 
 import android.app.Activity;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,10 +13,10 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.androdu.sofra.R;
-import com.androdu.sofra.data.local.room.Item;
 import com.androdu.sofra.data.local.room.RoomDao;
 import com.androdu.sofra.data.local.room.RoomManger;
-import com.androdu.sofra.ui.fragments.home.myCart.MyCartFragment;
+import com.androdu.sofra.data.local.room.cartItem;
+import com.androdu.sofra.ui.fragments.home.cart.myCart.MyCartFragment;
 import com.bumptech.glide.Glide;
 
 import java.util.List;
@@ -24,14 +25,14 @@ import java.util.concurrent.Executors;
 public class CartItemsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     private Activity activity;
-    private List<Item> modelList;
+    private List<cartItem> modelList;
 
 
     private RoomDao roomDao;
     private int quantity;
     MyCartFragment.updateUi uiListener;
 
-    public CartItemsAdapter(Activity activity, List<Item> modelList, MyCartFragment.updateUi uiListener) {
+    public CartItemsAdapter(Activity activity, List<cartItem> modelList, MyCartFragment.updateUi uiListener) {
         this.activity = activity;
         this.modelList = modelList;
         this.uiListener = uiListener;
@@ -52,7 +53,7 @@ public class CartItemsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
 
         //Here you can fill your row view
         if (holder instanceof CartItemsAdapter.ViewHolder) {
-            final Item model = getItem(position);
+            final cartItem model = getItem(position);
             final CartItemsAdapter.ViewHolder genericViewHolder = (CartItemsAdapter.ViewHolder) holder;
 
 
@@ -71,16 +72,22 @@ public class CartItemsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
                     Executors.newSingleThreadExecutor().execute(new Runnable() {
                         @Override
                         public void run() {
-                            roomDao.delete(model);
+                            Log.d("room", "run: item remove: " + model.getId());
+                            roomDao.deleteItem(model);
+                            modelList.remove(model);
+                            if (modelList.isEmpty()){
+                                roomDao.deleteCartRestaurant();
+                                Log.d("room", "run: rest removed: " + roomDao.getRestaurant().size());
 
+                            }
                             activity.runOnUiThread(new Runnable() {
                                 @Override
                                 public void run() {
-                                    modelList.remove(model);
                                     uiListener.onItemDeleted(modelList);
                                     notifyDataSetChanged();
                                 }
                             });
+
                         }
                     });
                 }
@@ -95,7 +102,8 @@ public class CartItemsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
                         @Override
                         public void run() {
                             model.setQuantity(quantity);
-                            roomDao.onUpdate(model);
+                            roomDao.updateCartItem(model);
+                            Log.d("room", "run: item updated: " + model.getId());
                             uiListener.onItemDeleted(modelList);
                         }
                     });
@@ -112,7 +120,8 @@ public class CartItemsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
                             @Override
                             public void run() {
                                 model.setQuantity(quantity);
-                                roomDao.onUpdate(model);
+                                roomDao.updateCartItem(model);
+                                Log.d("room", "run: item updated: " + model.getId());
                                 uiListener.onItemDeleted(modelList);
                             }
                         });
@@ -130,7 +139,7 @@ public class CartItemsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
     }
 
 
-    private Item getItem(int position) {
+    private cartItem getItem(int position) {
         return modelList.get(position);
     }
 

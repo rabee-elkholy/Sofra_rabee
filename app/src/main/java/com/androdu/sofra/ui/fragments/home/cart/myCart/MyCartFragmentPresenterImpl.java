@@ -1,6 +1,6 @@
-package com.androdu.sofra.ui.fragments.home.myCart;
+package com.androdu.sofra.ui.fragments.home.cart.myCart;
 
-import com.androdu.sofra.data.local.room.Item;
+import com.androdu.sofra.data.local.room.cartItem;
 import com.androdu.sofra.data.local.room.RoomDao;
 
 import java.util.List;
@@ -27,8 +27,8 @@ public class MyCartFragmentPresenterImpl implements IMyCartFragment.Presenter{
         Executors.newSingleThreadExecutor().execute(new Runnable() {
             @Override
             public void run() {
-                List<Item> items = roomDao.getAll();
-                mMyCartView.onGetItemsSuccess(items);
+                List<cartItem> cartItems = roomDao.getAllItems();
+                mMyCartView.onGetItemsSuccess(cartItems);
             }
         });
     }

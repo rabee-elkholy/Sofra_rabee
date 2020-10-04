@@ -80,7 +80,9 @@ public class AllRestaurantsFragment extends Fragment implements IAllRestaurantsF
         Executors.newSingleThreadExecutor().execute(new Runnable() {
             @Override
             public void run() {
-                RoomManger.getInstance(getActivity()).roomDao().deleteAll();
+                RoomManger.getInstance(getActivity()).roomDao().deleteAllItems();
+                RoomManger.getInstance(getActivity()).roomDao().deleteCartRestaurant();
+
                 Log.d("room", "run: room items deleted.");
             }
         });
@@ -250,7 +252,6 @@ public class AllRestaurantsFragment extends Fragment implements IAllRestaurantsF
     public void onGetCitiesSuccess(List<City> cities) {
         this.cities = cities;
         allRestaurantsFragmentPresenter.getAllRestaurants(1, keyWord, cityId, isFiltered);
-
     }
 
     @Override

@@ -72,7 +72,7 @@
                         android:id="@+id/item_cart_list_tv_counter"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/border_shape"
+                        android:background="@drawable/border_shape_white"
                         android:paddingHorizontal="@dimen/_25sdp"
                         android:paddingVertical="@dimen/_6sdp"
                         android:text="1"

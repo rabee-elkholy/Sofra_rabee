@@ -11,16 +11,35 @@ import java.util.List;
 @Dao
 public interface RoomDao {
     @Insert
-    void add(Item... items);
+    void addCartItem(cartItem cartItem);
 
     @Update
-    void onUpdate(Item... items);
+    void updateCartItem(cartItem cartItem);
+
+
+    @Query("select * from cartItem")
+    List<cartItem> getAllItems();
+
 
     @Delete
-    void delete(Item... items);
+    void deleteItem(cartItem cartItems);
 
-    @Query("select * from Item")
-    List<Item> getAll();
-    @Query("DELETE FROM Item")
-    void deleteAll();
+    @Query("DELETE FROM cartItem")
+    void deleteAllItems();
+
+    @Insert
+    void addCartRestaurant(CartRestaurant cartRestaurant);
+
+    @Update
+    void updateCartRestaurant(CartRestaurant cartRestaurant);
+
+
+    @Query("SELECT * FROM CartRestaurant LIMIT 1")
+    List<CartRestaurant> getRestaurant();
+
+
+    @Query("DELETE FROM CartRestaurant")
+    void deleteCartRestaurant();
+
+
 }

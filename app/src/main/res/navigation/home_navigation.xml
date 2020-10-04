@@ -62,6 +62,14 @@
     </fragment>
     <fragment
         android:id="@+id/myCartFragment"
-        android:name="com.androdu.sofra.ui.fragments.home.myCart.MyCartFragment"
-        android:label="MyCartFragment" />
+        android:name="com.androdu.sofra.ui.fragments.home.cart.myCart.MyCartFragment"
+        android:label="MyCartFragment" >
+        <action
+            android:id="@+id/action_myCartFragment_to_confirmOrderFragment"
+            app:destination="@id/confirmOrderFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/confirmOrderFragment"
+        android:name="com.androdu.sofra.ui.fragments.home.cart.confirmOrder.ConfirmOrderFragment"
+        android:label="ConfirmOrderFragment" />
 </navigation>

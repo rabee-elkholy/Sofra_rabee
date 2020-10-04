@@ -36,7 +36,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_margin="@dimen/_15sdp"
-            android:background="@drawable/border_shape"
+            android:background="@drawable/border_shape_white"
             android:orientation="vertical"
             android:padding="@dimen/_15sdp">
 
@@ -121,7 +121,7 @@
                     android:id="@+id/add_review_fragment_et_review_text"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/border_shape"
+                    android:background="@drawable/border_shape_white"
                     android:hint="أدخل طلبك هنا"
                     android:inputType="textMultiLine"
                     android:lines="5"

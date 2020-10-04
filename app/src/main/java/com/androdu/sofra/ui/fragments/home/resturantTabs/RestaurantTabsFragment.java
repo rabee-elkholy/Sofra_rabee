@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import androidx.fragment.app.Fragment;
 
 import com.androdu.sofra.R;
-import com.androdu.sofra.adapter.ViewPagerAdapter;
+import com.androdu.sofra.adapter.RestaurantViewPagerAdapter;
 import com.androdu.sofra.utils.CustomViewPager;
 import com.google.android.material.tabs.TabLayout;
 
@@ -23,7 +23,7 @@ public class RestaurantTabsFragment extends Fragment {
     private TabLayout tabLayout;
     private CustomViewPager viewPager;
     private View view;
-    private ViewPagerAdapter viewPagerAdapter;
+    private RestaurantViewPagerAdapter restaurantViewPagerAdapter;
 
     public RestaurantTabsFragment() {
         // Required empty public constructor
@@ -43,7 +43,7 @@ public class RestaurantTabsFragment extends Fragment {
         viewPager = view.findViewById(R.id.restaurant_tabs_fragment_vp_view_pager);
 
         Log.d("tabs", "onCreateView: ");
-        viewPager.setAdapter(new ViewPagerAdapter(getChildFragmentManager(), restaurantId, restaurantName, photoUrl));
+        viewPager.setAdapter(new RestaurantViewPagerAdapter(getChildFragmentManager(), restaurantId, restaurantName, photoUrl));
         viewPager.disableScroll(true);
         tabLayout.setupWithViewPager(viewPager);
 
